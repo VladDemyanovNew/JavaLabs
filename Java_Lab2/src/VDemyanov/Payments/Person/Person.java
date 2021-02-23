@@ -1,4 +1,4 @@
-package VDemyanov.Payments.Persons;
+package VDemyanov.Payments.Person;
 
 public abstract class Person {
     private String name;
@@ -11,5 +11,21 @@ public abstract class Person {
         this.middleName = middleName;
         this.name = name;
         this.passportData = passportData;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getMiddleName() {
+        return middleName;
+    }
+
+    public String getPassportData() {
+        return passportData;
     }
 }
