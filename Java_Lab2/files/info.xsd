@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Payments" type="PaymentsType"/>
+  <xs:complexType name="ClientType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="name" use="optional"/>
+        <xs:attribute type="xs:string" name="lastName" use="optional"/>
+        <xs:attribute type="xs:string" name="middleName" use="optional"/>
+        <xs:attribute type="xs:string" name="passportData" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="ClientsType">
+    <xs:sequence>
+      <xs:element type="ClientType" name="Client" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AdminType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute type="xs:string" name="name" use="optional"/>
+        <xs:attribute type="xs:string" name="lastName" use="optional"/>
+        <xs:attribute type="xs:string" name="middleName" use="optional"/>
+        <xs:attribute type="xs:string" name="passportData" use="optional"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="AdminsType">
+    <xs:sequence>
+      <xs:element type="AdminType" name="Admin" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PaymentsType">
+    <xs:sequence>
+      <xs:element type="ClientsType" name="Clients"/>
+      <xs:element type="AdminsType" name="Admins"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

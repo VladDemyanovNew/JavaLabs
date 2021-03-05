@@ -3,9 +3,10 @@ package VDemyanov.Payments.Card;
 import VDemyanov.Payments.Account.Account;
 import VDemyanov.Payments.Person.Client;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class Card {
+public class Card implements Serializable {
     private Account account;
     private Client client;
     private String cardNumber;
@@ -22,6 +23,9 @@ public class Card {
     }
     public Client getClient() {
         return client;
+    }
+    public Account getAccount() {
+        return account;
     }
 
     public Card(String cardNumber, Account account, Client client) {

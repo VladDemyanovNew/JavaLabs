@@ -1,6 +1,9 @@
 package VDemyanov.Payments.Person;
 
-public abstract class Person {
+import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
+
+public abstract class Person implements Serializable {
     private String name;
     private String lastName;
     private String middleName;

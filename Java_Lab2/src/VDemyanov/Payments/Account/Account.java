@@ -1,9 +1,11 @@
 package VDemyanov.Payments.Account;
 
 import VDemyanov.Payments.Person.Client;
+
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class Account {
+public class Account implements Serializable {
     private Client owner;
     private String accountNumber;
     private BigDecimal balance;

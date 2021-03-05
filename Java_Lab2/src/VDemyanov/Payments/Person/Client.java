@@ -3,9 +3,10 @@ package VDemyanov.Payments.Person;
 import VDemyanov.Payments.Card.Card;
 import VDemyanov.Payments.Repository.CardRepository;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class Client extends Person {
+public class Client extends Person implements Serializable {
     public Client(String name, String lastName, String middleName, String passportData) {
         super(name, lastName, middleName, passportData);
     }
@@ -13,7 +14,7 @@ public class Client extends Person {
     public BigDecimal getBalance(String cardNumber, CardRepository cardRepository) {
         try {
             boolean isCardFound = false;
-            for (Card card : cardRepository.getCards()) {
+            for (Card card : cardRepository.getItems()) {
                 if (card.getCardNumber().equals(cardNumber)) {
                     isCardFound = true;
                     if (!card.isCardBlock())
@@ -34,7 +35,7 @@ public class Client extends Person {
     public void blockCard(boolean action, String cardNumber, CardRepository cardRepository) {
         try {
             boolean isCardFound = false;
-            for (Card card : cardRepository.getCards()) {
+            for (Card card : cardRepository.getItems()) {
                 if (card.getCardNumber().equals(cardNumber)) {
                     isCardFound = true;
                     card.setCardBlock(action);
@@ -51,7 +52,7 @@ public class Client extends Person {
     public void makeDeposit(BigDecimal deposit, String cardNumber, CardRepository cardRepository) {
         try {
             boolean isCardFound = false;
-            for (Card card : cardRepository.getCards()) {
+            for (Card card : cardRepository.getItems()) {
                 if (card.getCardNumber().equals(cardNumber)) {
                     isCardFound = true;
                     if (!card.isCardBlock())
@@ -72,7 +73,7 @@ public class Client extends Person {
     public void sendPayment(BigDecimal deposit, String cardNumber, CardRepository cardRepository) {
         try {
             boolean isCardFound = false;
-            for (Card card : cardRepository.getCards()) {
+            for (Card card : cardRepository.getItems()) {
                 if (card.getCardNumber().equals(cardNumber)) {
                     isCardFound = true;
                     if (!card.isCardBlock())
@@ -87,5 +88,10 @@ public class Client extends Person {
         catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Name: " + this.getName() + " LastName: " + this.getLastName() + " MiddleName: " + this.getMiddleName() + " PassportData: " + this.getPassportData();
     }
 }

@@ -11,7 +11,7 @@ public class AccountRepository implements IRepository<Account> {
         this.accounts = new ArrayList<Account>();
     }
 
-    public ArrayList<Account> getAccounts() {
+    public ArrayList<Account> getItems() {
         return accounts;
     }
     public int getLength() {
