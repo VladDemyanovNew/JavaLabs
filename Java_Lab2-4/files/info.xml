@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- можно подключить с помощью целевого пространства, оно указывается с помощью атрибута targetNamespace -->
+<Payments xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="info.xsd">
+    <Clients>
+        <Client name="Vlad" lastName="Demyanov" middleName="Ruslanovich" passportData="123-sd-213-ppp" />
+        <Client name="Alex" lastName="AlexLastName" middleName="AlexMiddleName" passportData="123-sd-213-spp" />
+        <Client name="Pavel" lastName="PavelLastName" middleName="PavelMiddleName" passportData="123-sd-213-s54" />
+        <Client name="Client4Name" lastName="Client4LastName" middleName="Client4MiddleName" passportData="124-sd-213-sdf" />
+    </Clients>
+    <Admins>
+        <Admin name="Admin1Name" lastName="Admin1LastName" middleName="Admin1MiddleName" passportData="122-sd-213-sdf" />
+        <Admin name="Admin2Name" lastName="Admin2LastName" middleName="Admin2MiddleName" passportData="125-sd-213-sdf" />
+        <Admin name="Admin3Name" lastName="Admin3LastName" middleName="Admin3MiddleName" passportData="124-sd-213-sdf" />
+        <Admin name="Admin3Name" lastName="Admin3LastName" middleName="Admin3MiddleName" passportData="1s3-sd-213-sdf" />
+    </Admins>
+</Payments>
