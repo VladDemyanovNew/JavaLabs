@@ -48,7 +48,7 @@ public class Bathroom {
         while (isFull() || !person.getSex().equals(currentSex)) {
             try {
                 wait();
-                if (this.currentSex .equals(Sex.NONE))
+                if (this.currentSex.equals(Sex.NONE))
                     this.currentSex = person.getSex();
             }
             catch (InterruptedException e) {

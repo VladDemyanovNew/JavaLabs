@@ -1,66 +1,70 @@
 package VDemyanov.Multithreading.Task2.Airport;
 
+import VDemyanov.Multithreading.Task2.Aircraft.Aircraft;
+import VDemyanov.Multithreading.Task2.Aircraft.TaskType;
+import VDemyanov.Multithreading.Task2.Person.Person;
+
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class Aiport {
-
-    private ArrayList<Ladder> ladders;
-    private ArrayList<Terminal> terminals;
+    // aircrafts предназначена для хранения самолётов, которые требуют выполнить с ними какую-то задачу
+    // например посадку/выгрузку пассажиров
     private ArrayList<Aircraft> aircrafts;
+    // people будет хранить клиентов аэропорта (после выгрузки или перед посадкой)
+    private ArrayList<Person> people;
+    ReentrantLock locker;
+    Condition condition;
 
-    /**
-     * Возвращает колекцию трапов
-     * @return ArrayList<Ladder> ladders
-     */
-    public ArrayList<Ladder> getLadders() {
-        return ladders;
+    public Aiport() {
+        this.aircrafts = new ArrayList<>();
+        this.people = new ArrayList<Person>();
+        this.locker = new ReentrantLock();
+        this.condition = this.locker.newCondition();
     }
 
-    /**
-     * Возвращает колекцию терминалов
-     * @return ArrayList<Terminal> terminals
-     */
-    public ArrayList<Terminal> getTerminals() {
-        return terminals;
-    }
-
-    /**
-     * Возвращает колекцию самолётов
-     * @return ArrayList<Aircraft> aircrafts
-     */
     public ArrayList<Aircraft> getAircrafts() {
         return aircrafts;
     }
-
-    public Aiport(int terminalCount, int ladderCount) {
-        generateTerminals(terminalCount);
-        generateLadders(ladderCount);
-        this.aircrafts = new ArrayList<>();
+    public void addAircrafts(Aircraft ...aircrafts) {
+        this.aircrafts.addAll(Arrays.asList(aircrafts));
+    }
+    public void addPerson(Person person) {
+        people.add(person);
     }
 
-    public void addAircraft() {
-
-    }
-
-    /**
-     * Генерирует колекцию из count терминалов
-     * @param count
-     */
-    private void generateTerminals(int count) {
-        while (count != 0) {
-            this.terminals.add(new Terminal());
-            count--;
-        }
+    public void findAircraftForBoardingPassengers(String aircraftNumber) {
     }
 
     /**
-     * Генерирует колекцию из count терминалов
-     * @param count
+     * Производит поиск самолёта с задачей на высадку пассажиров
+     * @return Aircraft
      */
-    private void generateLadders(int count) {
-        while (count != 0) {
-            this.ladders.add(new Ladder());
-            count--;
+    public Aircraft findAircraftForDisembarking() {
+        locker.lock();
+        try {
+            while (aircrafts.isEmpty() || aircrafts.stream().noneMatch(item -> item.getTaskType().equals(TaskType.DISEMBARKING)))
+                condition.await();
+
+            for (Aircraft aircraft : aircrafts) {
+                if (aircraft.getTaskType().equals(TaskType.DISEMBARKING) && aircraft.isAvailable()) {
+                    aircraft.setAvailable(false);
+                    condition.signalAll();
+                    aircrafts.remove(aircraft);
+                    return aircraft;
+                }
+            }
+            condition.signalAll();
         }
-    }
+        catch (InterruptedException e){
+            System.out.println(e.getMessage());
+        }
+        finally{
+            locker.unlock();
+        }
+        return null;
+   }
+
 }
