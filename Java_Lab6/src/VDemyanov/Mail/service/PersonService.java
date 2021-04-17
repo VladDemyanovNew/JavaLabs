@@ -58,7 +58,10 @@ public class PersonService extends Util implements PersonDAO {
      * @param topic
      */
     @Override
-    public void printInfo3(String topic) throws SQLException {
+    public List<Person> printInfo3(String topic) throws SQLException {
+
+        List<Person> people = new ArrayList<Person>();
+
         PreparedStatement preparedStatement = null;
         String sql = " SELECT * FROM Person " +
                 " WHERE Person.Id NOT IN ( " +
@@ -73,6 +76,13 @@ public class PersonService extends Util implements PersonDAO {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
+
+                Person person = new Person();
+                person.setId(resultSet.getInt("Id"));
+                person.setBirthday(resultSet.getDate("Birthday"));
+                person.setName(resultSet.getString("Name"));
+                people.add(person);
+                //лень переделывать
                 System.out.println(
                         "Person{" +
                                 "id=" + resultSet.getInt("Id") +
@@ -92,6 +102,7 @@ public class PersonService extends Util implements PersonDAO {
                 connection.close();
             }
         }
+        return people;
     }
 
     /**

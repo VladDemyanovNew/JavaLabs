@@ -1,6 +1,8 @@
 package VDemyanov.Mail.entity;
 
 import java.sql.Date;
+import java.time.LocalDate;
+import java.util.Calendar;
 import java.util.Objects;
 
 public class Person {
@@ -40,6 +42,14 @@ public class Person {
 
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
+    }
+
+    public int calcAge() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(birthday);
+        int birthdayYear = calendar.get(Calendar.YEAR);
+        int currentYear = LocalDate.now().getYear();
+        return currentYear - birthdayYear;
     }
 
     @Override

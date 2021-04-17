@@ -14,5 +14,5 @@ public interface PersonDAO {
     Person getByFewestLetters() throws SQLException;
     void printInfo1() throws SQLException;
     void printInfo2(String topic) throws SQLException;
-    void printInfo3(String topic) throws SQLException;
+    List<Person> printInfo3(String topic) throws SQLException;
 }

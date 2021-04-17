@@ -23,6 +23,8 @@ public class LetterService extends Util implements LetterDAO {
         try {
             List<Person> people = personService.getAll();
             connection = getConnection();
+            connection.setAutoCommit(false);
+            int test = 0;
 
             for (Person person : people) {
                 preparedStatement = connection.prepareStatement(sql);
@@ -32,7 +34,11 @@ public class LetterService extends Util implements LetterDAO {
                 preparedStatement.setString(4, letter.getText());
                 preparedStatement.setDate(5, letter.getShippingDate());
                 preparedStatement.executeUpdate();
+//                if (test == 2)
+//                    connection.rollback();
             }
+            connection.commit();
+            connection.setAutoCommit(true);
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
