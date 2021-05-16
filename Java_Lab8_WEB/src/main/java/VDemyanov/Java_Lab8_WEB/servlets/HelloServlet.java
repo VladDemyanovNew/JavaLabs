@@ -14,7 +14,6 @@ public class HelloServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         PrintWriter writer = response.getWriter();
 
-
         try {
             writer.println("Текущая дата: " + new Date() + "<BR>");
             writer.println("метод доступа    " + request.getMethod() + "<BR>");
