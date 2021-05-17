@@ -1,0 +1,70 @@
+body {
+    background: linear-gradient(45deg, #ff6af4, #1100a2);
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.input-style {
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 100%;
+}
+
+.register-btn {
+    background: none;
+    border: none;
+    text-decoration: underline;
+    cursor: pointer;
+    color: gray;
+}
+
+.register-form {
+    text-align: center;
+}
+
+.login-btn {
+    font-size: 25px;
+    padding: 10px 25px;
+    background: linear-gradient(45deg, #ff6af4, #1100a2);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-btn-section {
+    display: flex;
+    justify-content: center;
+}
+
+.login-form {
+    padding: 35px 35px 10px 35px;
+}
+
+.wrapper .form-section {
+    height: 100vh;
+    position: relative;
+}
+
+.wrapper .form h1 {
+    text-align: center;
+    margin: 0;
+    padding: 20px 0 50px 0;
+    color: gray;
+}
+
+.wrapper .form {
+    background: white;
+    padding: 20px;
+    border-radius: 7%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+

@@ -1,0 +1,94 @@
+body {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    padding: 0;
+    margin: 0;
+}
+
+.btn-style {
+    font-size: 25px;
+    padding: 10px 25px;
+    background: linear-gradient(45deg, #ff6af4, #1100a2);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-style-second {
+    font-size: 15px;
+    padding: 10px 25px;
+    background: linear-gradient(45deg, #ff6af4, #1100a2);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/*--------- header ----------*/
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(45deg, #ff6af4, #1100a2);
+    padding: 10px 20px;
+}
+
+.logout-style {
+    color: white;
+    font-size: 18px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
+
+.user-info i {
+    font-size: 25px;
+    padding-left: 20px;
+}
+
+/*--------- main-section ----------*/
+.main-section {
+    background: aliceblue;
+    display: grid;
+    grid-template-areas:"dragons-view dragon-constructor";
+    grid-template-columns: 1fr 0.7fr;
+}
+
+.dragons-view {
+    grid-area: dragons-view;
+    background: gray;
+    padding: 20px;
+}
+
+.dragon-constructor {
+    grid-area: dragon-constructor;
+    padding: 20px;
+}
+
+.dragon-constructor h2 {
+    padding: 10px;
+}
+
+.dragon-constructor form {
+    display: flex;
+    flex-direction: column;
+}
+
+.dragon-constructor input {
+    margin: 10px;
+    padding: 10px;
+}
+
+/*--------- footer ----------*/
+.footer {
+    background: black;
+}

@@ -42,6 +42,10 @@ public class Person {
         this.role = role;
     }
 
+    public enum ROLE {
+        USER, ADMIN, UNKNOWN
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

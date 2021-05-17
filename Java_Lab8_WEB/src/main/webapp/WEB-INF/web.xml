@@ -3,8 +3,95 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+
+    <error-page>
+        <exception-type>java.lang.Throwable</exception-type>
+        <location>/WEB-INF/view/error.jsp</location>
+    </error-page>
+
+    <!--filter check exist session for sign in-->
+    <filter>
+        <filter-name>AuthFilter</filter-name>
+        <filter-class>VDemyanov.Java_Lab8_WEB.servlets.filter.AuthFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AuthFilter</filter-name>
+        <url-pattern>/</url-pattern>
+    </filter-mapping>
+
+    <!--Logout servlet-->
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>VDemyanov.Java_Lab8_WEB.servlets.servlet.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+
+    <!--Register servlet-->
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>VDemyanov.Java_Lab8_WEB.servlets.servlet.RegisterServlet</servlet-class>
+    </servlet>
+
+    <!--Addition dragon-->
+    <servlet-mapping>
+        <servlet-name>AddDragonServlet</servlet-name>
+        <url-pattern>/add_dragon</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AddDragonServlet</servlet-name>
+        <servlet-class>VDemyanov.Java_Lab8_WEB.servlets.servlet.AddDragonServlet</servlet-class>
+    </servlet>
+
+    <!--Delete dragon-->
+    <servlet-mapping>
+        <servlet-name>DeleteDragonServlet</servlet-name>
+        <url-pattern>/delete_dragon</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DeleteDragonServlet</servlet-name>
+        <servlet-class>VDemyanov.Java_Lab8_WEB.servlets.servlet.DeleteDragonServlet</servlet-class>
+    </servlet>
+
+    <!--Encoding filter UTF-8 for all requests-->
+    <filter>
+        <filter-name>EncodingRequestFilter</filter-name>
+        <filter-class>VDemyanov.Java_Lab8_WEB.servlets.filter.EncodingRequestFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>EncodingRequestFilter</filter-name>
+        <url-pattern>/</url-pattern>
+    </filter-mapping>
+
+    <!--Encoding filter UTF-8 for all requests-->
+    <filter>
+        <filter-name>EncodingResponseFilter</filter-name>
+        <filter-class>VDemyanov.Java_Lab8_WEB.servlets.filter.EncodingResponseFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>EncodingResponseFilter</filter-name>
+        <url-pattern>/</url-pattern>
+    </filter-mapping>
+
+    <!--
     <display-name> FirstJspServletJsp </display-name>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
-    </welcome-file-list>
+    </welcome-file-list>-->
+
+    <!--<servlet>
+        <servlet-name>GetStartPageServlet</servlet-name>
+        <servlet-class>VDemyanov.Java_Lab8_WEB.servlets.servlet.GetIndexPageServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>GetStartPageServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>-->
 </web-app>

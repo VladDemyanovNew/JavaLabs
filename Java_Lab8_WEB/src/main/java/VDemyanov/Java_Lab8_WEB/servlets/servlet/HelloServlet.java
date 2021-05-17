@@ -1,4 +1,4 @@
-package VDemyanov.Java_Lab8_WEB.servlets;
+package VDemyanov.Java_Lab8_WEB.servlets.servlet;
 
 import java.io.*;
 import java.util.Date;

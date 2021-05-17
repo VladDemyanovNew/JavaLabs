@@ -25,7 +25,7 @@ public class testClass {
     @Test
     public void testAuth() throws SQLException {
         PersonService personService = new PersonService();
-        Person person = personService.getByLoginAndPassword("VDemyanov", "password");
+        Person person = personService.userIsExist("VDemyanov", "password");
         System.out.println(person.toString());
     }
 
