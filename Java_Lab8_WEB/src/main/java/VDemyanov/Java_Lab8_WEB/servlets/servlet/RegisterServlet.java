@@ -19,6 +19,8 @@ public class RegisterServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+        String message = getServletContext().getInitParameter("test"); // пример параметра для одного сервлета
+
         final String login = req.getParameter("login");
         final String password = req.getParameter("password");
 

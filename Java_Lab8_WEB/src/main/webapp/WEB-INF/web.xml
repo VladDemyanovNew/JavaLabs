@@ -4,6 +4,12 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
+    <!-- Доступен всем сервлетам в приложении -->
+    <context-param>
+        <param-name>message</param-name>
+        <param-value>Hello Servlets</param-value>
+    </context-param>
+
     <error-page>
         <exception-type>java.lang.Throwable</exception-type>
         <location>/WEB-INF/view/error.jsp</location>
@@ -37,6 +43,10 @@
     <servlet>
         <servlet-name>RegisterServlet</servlet-name>
         <servlet-class>VDemyanov.Java_Lab8_WEB.servlets.servlet.RegisterServlet</servlet-class>
+        <init-param>
+            <param-name>test</param-name>
+            <param-value>Hello Servlets</param-value>
+        </init-param>
     </servlet>
 
     <!--Addition dragon-->

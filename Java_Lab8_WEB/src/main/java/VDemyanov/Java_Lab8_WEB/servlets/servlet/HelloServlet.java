@@ -10,6 +10,8 @@ import javax.servlet.annotation.*;
 public class HelloServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String message = getServletContext().getInitParameter("message"); // пример получения параметра общего контекста сервлетов
+
         response.setContentType("text/html");
         response.setCharacterEncoding("UTF-8");
         PrintWriter writer = response.getWriter();
