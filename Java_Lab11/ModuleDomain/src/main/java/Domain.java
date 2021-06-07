@@ -8,6 +8,6 @@ public class Domain {
         person.setId(1);
 
         System.out.println(person.toString());*/
-        System.out.println("Hy!");
+        System.out.println("domain!");
     }
 }
