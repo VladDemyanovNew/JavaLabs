@@ -21,7 +21,6 @@ public class Server {
                 break;
             }
         }
-
     }
 
     /**

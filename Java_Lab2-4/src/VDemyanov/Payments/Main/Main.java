@@ -106,7 +106,6 @@ public class Main {
         Client client1 = new Client("Client1_Name", "Client1_lastName", "Client1_middleName", "k12-l23-l23-o23");
         Client client2 = new Client("Client2_Name", "Client2_lastName", "Client2_middleName", "k12-l23-l23-o24");
 
-
         AccountRepository accountRepository = new AccountRepository();
         CardRepository cardRepository = new CardRepository();
 
